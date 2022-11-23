@@ -33,7 +33,7 @@ echo "\033[44;mCompression the backup using xz..\033[0m"
 xz -9 backup_session_1337_$DATE.tar
 echo "\033[42;m  Compression is done  \033[0m"
 echo "\033[44;mUse xz --decompress to unzip it)\033[0m"
-git add backup_session_1337_$DATE.tar.xz && git commit -m "backup $DATE" && git push
+git add backup_session_1337_$DATE.tar.xz && git commit -m "backup $DATE" && git push && git pull && git push
 echo "\033[42;mGit Push DONE \033[0m"
 cd ~/ && cd goinfre && rm -rf backup Firefox_Profiles_Backup_tmp
 echo "\033[35;m script made by wbousfir \033[0m"
