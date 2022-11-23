@@ -33,18 +33,16 @@ echo "\033[44;mCompression the backup using xz..\033[0m"
 xz -9 backup_session_1337_$DATE.tar
 echo "\033[42;m  Compression is done  \033[0m"
 echo "\033[42;m  Splitting Backup into 95MO FILE (github limits 100MO file) \033[0m"
-split --verbose -b 95000k backup_session_1337_$DATE.tar.xz backup_segment
+split --verbose -b 95000k backup_session_1337_$DATE.tar backup_segment
 echo "\033[44;mUse xz --decompress to unzip it)\033[0m"
 git add backup_segment* && git commit -m "backup $DATE" && git push && git pull && git push
 echo "\033[42;mGit Push DONE \033[0m"
-echo "\033[42;mRemoving the file .tar.xz \033[0m"
-rm -f backup_session_1337_$DATE.tar.xz
-echo "\n\n\n"
+
 echo "\033[42;m To redo the backup from the split files, just do:  \033[0m"
 echo "\033[42;m cat backup_segment?? > backup_session_1337.tar.xz \033[0m"
 echo "\033[42;m and then \033[0m"
 echo "\033[42;m xz -d backup_session_1337.tar.xz \033[0m"
 echo "\033[42;m Now if you want to open it :  tar xf backup_session_1337.tar \033[0m"
 echo "\033[42;m _____  \033[0m"
-cd ~/ && cd goinfre && rm -rf backup Firefox_Profiles_Backup_tmp
+#cd ~/ && cd goinfre && rm -rf backup Firefox_Profiles_Backup_tmp
 echo "\033[35;m script made by wbousfir \033[0m"
