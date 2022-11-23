@@ -14,6 +14,9 @@ git clone $PRIVATE_GIT goinfre/backup/gcl$DATE
 echo "\033[44;mCreation of the archive .tar...  \033[0m"
 echo "\033[44;mIt may take some time....  \033[0m"
 tar --exclude='./.TemporaryItems' --exclude='.CFUserTextEncoding' --exclude='.DocumentRevisions-V100' --exclude='.TemporaryItems' --exclude='.fseventsd'  --exclude='./.brew' --exclude='./Library' --exclude='./Desktop' --exclude='./.tmp' --exclude='./code/1337RANK.io' --exclude='./Applications' --exclude='./backup-session-1337' -cf goinfre/backup/gcl$DATE/backup_session_1337_$DATE.tar * .*
+
+echo "\033[45;m    ⬆⬆⬆⬆  IF YOU SEE ERROR HERE ⬆⬆⬆⬆  \033[0m"
+echo "\033[45;m   It's normal, the backup has been made \033[0m"
 echo "\033[44;mThe tar archive is now created inside goinfre/backup/gcl$DATE  \033[0m"
 ls goinfre/backup/gcl$DATE/backup_session_1337*
 sleep 3s
