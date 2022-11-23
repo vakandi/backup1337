@@ -8,27 +8,27 @@ cd ~/ && cp -r Library/Mozilla/Firefox/Profiles goinfre/Firefox_Profiles_Backup_
 cd goinfre
 echo "\033[44;mCreating the backup folder..  \033[0m"
 mkdir backup
-cd backup
+cd ~/
 echo "\033[44;mCloning the git repo into 'gcl$DATE'\033[0m"
-git clone $PRIVATE_GIT gcl$DATE
-
+git clone $PRIVATE_GIT goinfre/backup/gcl$DATE
 echo "\033[44;mCreation of the archive .tar...  \033[0m"
 echo "\033[44;mIt may take some time....  \033[0m"
-cd ~/
 tar --exclude='./.TemporaryItems' --exclude='.CFUserTextEncoding' --exclude='.DocumentRevisions-V100' --exclude='.TemporaryItems' --exclude='.fseventsd'  --exclude='./.brew' --exclude='./Library' --exclude='./Desktop' --exclude='./.tmp' --exclude='./code/1337RANK.io' --exclude='./Applications' --exclude='./backup-session-1337' -cf goinfre/backup/gcl$DATE/backup_session_1337_$DATE.tar * .*
+echo "\033[44;mThe tar archive is now created inside goinfre/backup/gcl$DATE  \033[0m"
+ls goinfre/backup/gcl$DATE/backup_session_1337*
+sleep 3s
 cd goinfre
 cd backup
 cd gcl$DATE
-echo "\033[44;mThe tar archive is now created inside goinfre/backup/gcl$DATE  \033[0m"
-echo "\033[43;mCompression the backup using xz..\033[0m"
-BACKUP_PATH=/goinfre/backup/gcl$DATE/backup_session_1337_$DATE.tar
-if [ -f "$BACKUP_PATH" ]; then
-    echo "\033[42;m$BACKUP_PATH exists,\n BACKUP SUCCEED\033]0m"
-	xz -9 backup_session_1337_$DATE.tar
-else
-    echo "\033[41;m$BACKUP_PATH does not exist. BACKUP FAILED\033]0m"
-	exit
-fi
+echo "\033[44;mCompression the backup using xz..\033[0m"
+#BACKUP_PATH=/goinfre/backup/gcl$DATE/backup_session_1337_$DATE.tar
+#if [ -f "$BACKUP_PATH" ]; then
+#    echo "\033[42;m$BACKUP_PATH exists,\n BACKUP SUCCEED\033]0m"
+#	xz -9 backup_session_1337_$DATE.tar
+#else
+#    echo "\033[41;m$BACKUP_PATH does not exist. BACKUP FAILED\033]0m"
+#	exit
+#fi
 
 xz -9 backup_session_1337_$DATE.tar
 echo "\033[42;m  Compression is done  \033[0m"
