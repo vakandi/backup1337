@@ -36,7 +36,7 @@ echo "\033[44;mCompression the backup using xz..\033[0m"
 xz -9 backup_session_1337_$DATE.tar
 echo "\033[42;m  Compression is done  \033[0m"
 echo "\033[42;m  Splitting Backup into 95MO FILE (github limits 100MO file) \033[0m"
-split -b 95000k backup_session_1337_$DATE.tar backup_segment
+split -b 95000k backup_session_1337_$DATE.tar.xz backup_segment
 echo "\033[44;mUse xz --decompress to unzip it)\033[0m"
 git add backup_segment* && git commit -m "backup $DATE" && git push && git pull && git push
 echo "\033[42;mGit Push DONE \033[0m"
