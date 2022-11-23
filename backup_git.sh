@@ -15,12 +15,11 @@ git clone $PRIVATE_GIT gcl$DATE
 echo "\033[44;mCreation of the archive .tar...  \033[0m"
 echo "\033[44;mIt may take some time....  \033[0m"
 cd ~/
-tar --exclude='./.brew' --exclude='./Library' --exclude='./Desktop' --exclude='./.tmp' --exclude='./code/1337RANK.io' --exclude='./Applications' --exclude='./backup-session-1337' -cf goinfre/backup/gcl$DATE/backup_session_1337_$DATE.tar * .*
+tar --exclude='./.TemporaryItems' --exclude='.CFUserTextEncoding' --exclude='.DocumentRevisions-V100' --exclude='.TemporaryItems' --exclude='.fseventsd'  --exclude='./.brew' --exclude='./Library' --exclude='./Desktop' --exclude='./.tmp' --exclude='./code/1337RANK.io' --exclude='./Applications' --exclude='./backup-session-1337' -cf goinfre/backup/gcl$DATE/backup_session_1337_$DATE.tar * .*
 cd goinfre
 cd backup
 cd gcl$DATE
-echo "\033[44;mThe tar archive is now created inside goinfre/backup/  \033[0m"
-echo "\033[43;mAttempting to move backup from /goinfre/backup/ to the git repo\033[0m"
+echo "\033[44;mThe tar archive is now created inside goinfre/backup/gcl$DATE  \033[0m"
 echo "\033[43;mCompression the backup using xz..\033[0m"
 BACKUP_PATH=/goinfre/backup/gcl$DATE/backup_session_1337_$DATE.tar
 if [ -f "$BACKUP_PATH" ]; then
